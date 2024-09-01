@@ -1,11 +1,11 @@
 import React from 'react';
-import Svg, { Path, Circle, Rect } from 'react-native-svg';
+import Svg, { Path, Circle, Rect, Line, Mask } from 'react-native-svg';
 
-function Logo({ size, fill, ...props }) {
+function Logo({fill, ...props }) {
   return (
     <Svg 
-      width={size} 
-      height={size} 
+      width={101} 
+      height={36} 
       viewBox="0 0 101 36" 
       fill="none" 
       xmlns="http://www.w3.org/2000/svg" 
@@ -246,6 +246,44 @@ function ShopFilled({size, fill, ...props}) {
   );
 }
 
+function Plus({size, fill, ...props}) {
+  return(
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Rect x="2" y="2" width="20" height="20" rx="5" stroke={fill} strokeWidth="1.8"/>
+      <Line x1="12.1" y1="6.9" x2="12.1" y2="17.1" stroke={fill} strokeWidth="1.8" strokeLinecap="round"/>
+      <Line x1="6.9" y1="11.8" x2="17.1" y2="11.8" stroke={fill} strokeWidth="1.8" strokeLinecap="round"/>
+    </Svg>
+
+  );
+}
+
+function Heart({size, fill, ...props}) {
+  return(
+    <Svg width={size} height={size} viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Path 
+        d="M13.4316 18.409C13.0909 18.7501 12.6328 18.9569 12.1452 18.991H12.0018C11.4614 18.991 10.946 18.7783 10.572 18.404L10.5689 18.4008L3.32526 11.2133L3.32529 11.2133L3.31863 11.2068C0.973784 8.92297 0.885183 5.19829 3.11816 2.80451C5.32829 0.532632 8.95367 0.387785 11.3445 2.4732L12.0018 3.04656L12.6592 2.4732C15.0499 0.387876 18.6751 0.53262 20.8852 2.80421C23.1186 5.20302 23.0299 8.92296 20.68 11.2118L20.68 11.2118L20.6731 11.2186L13.4345 18.4061L13.4316 18.409Z" 
+        stroke={fill} 
+        strokeWidth="2"
+        />
+    </Svg>
+  );
+}
+
+function Messenger({size, fill, ...props}) {
+  return(
+    <Svg width={size} height={size} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <Mask id="path-1-inside-1_2162_2750" fill="white">
+      <Path fillRule="evenodd" clipRule="evenodd" d="M21.4517 17.6305C22.435 15.9834 23 14.0577 23 12C23 5.92487 18.0751 1 12 1C5.92487 1 1 5.92487 1 12C1 18.0751 5.92487 23 12 23C14.062 23 15.9915 22.4326 17.6409 21.4455L22.8478 22.8407L21.4517 17.6305Z"/>
+      </Mask>
+      <Path 
+        d="M21.4517 17.6305L19.9062 16.7078C19.6568 17.1255 19.5871 17.6264 19.7131 18.0963L21.4517 17.6305ZM17.6409 21.4455L18.1068 19.7068C17.6362 19.5807 17.1346 19.6508 16.7165 19.901L17.6409 21.4455ZM22.8478 22.8407L22.3819 24.5793C23.0031 24.7458 23.6659 24.5682 24.1206 24.1135C24.5753 23.6587 24.7529 22.996 24.5865 22.3748L22.8478 22.8407ZM21.2 12C21.2 13.7239 20.7276 15.3319 19.9062 16.7078L22.9973 18.5531C24.1425 16.6348 24.8 14.3915 24.8 12H21.2ZM12 2.8C17.081 2.8 21.2 6.91898 21.2 12H24.8C24.8 4.93076 19.0692 -0.8 12 -0.8V2.8ZM2.8 12C2.8 6.91898 6.91898 2.8 12 2.8V-0.8C4.93076 -0.8 -0.8 4.93076 -0.8 12H2.8ZM12 21.2C6.91898 21.2 2.8 17.081 2.8 12H-0.8C-0.8 19.0692 4.93076 24.8 12 24.8V21.2ZM16.7165 19.901C15.3387 20.7256 13.7275 21.2 12 21.2V24.8C14.3965 24.8 16.6443 24.1397 18.5653 22.99L16.7165 19.901ZM17.175 23.1842L22.3819 24.5793L23.3137 21.102L18.1068 19.7068L17.175 23.1842ZM24.5865 22.3748L23.1904 17.1646L19.7131 18.0963L21.1091 23.3065L24.5865 22.3748Z" 
+        fill={fill} 
+        mask="url(#path-1-inside-1_2162_2750)"
+      />
+    </Svg>
+
+  );
+}
 
 
 export {
@@ -258,4 +296,7 @@ export {
     ReelFilled,
     Shop,
     ShopFilled,
+    Plus,
+    Heart,
+    Messenger,
 };
