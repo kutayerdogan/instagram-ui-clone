@@ -1,82 +1,63 @@
 import React from 'react'
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, StyleSheet } from 'react-native'
+import stories from '../../../data/stories'
+import { LinearGradient } from 'expo-linear-gradient'
 
 function Stories() {
   return (
-    <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        style={styles.container}
+    <View style={styles.container}
     >
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-        <View style={styles.story}>
-            <View style={styles.storyImage}>
-                <Text>Image</Text>
-            </View>
-            <Text style={styles.storyName}>Name</Text>
-        </View>
-    </ScrollView>
-    );
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {stories.map(story => (
+                <View key={story.id} style={styles.storyContainer}>
+                <LinearGradient
+                    colors={['#DE0046', '#F7A34B']}
+                    style={styles.story} 
+                >
+                    <Image
+                        source={{ uri: story.user.avatar }}
+                        style={styles.avatar}
+                    />
+                </LinearGradient>
+                <Text numberOfLines={1} style={styles.username}>{story.user.username}</Text>
+                </View>
+            ))}
+        </ScrollView>
+    </View>
+  )
 }
 
 export default Stories
 
 const styles = StyleSheet.create({
     container: {
-        flexDirection: "row",
-        padding: 10,
+        paddingVertical: 10,
+        borderBottomWidth: 0.5,
+        borderBottomColor: '#DADADA',
     },
-
+    storyContainer: {
+        alignItems: 'center',
+        marginHorizontal: 4,
+        width: 75,
+    },
     story: {
-        alignItems: "center",
-        marginRight: 20,
+        width: 67,
+        height: 67,
+        borderRadius: 33.5,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
-
-    storyImage: {
+    avatar: {
         width: 60,
         height: 60,
         borderRadius: 30,
-        backgroundColor: "#ccc",
-        justifyContent: "center",
-        alignItems: "center",
+        borderWidth: 2,
+        borderColor: '#fff',
     },
-
-    storyName: {
-        marginTop: 5,
-    }
+    username: {
+        color: '#000',
+        fontSize: 12,
+        marginTop: 2,
+        textAlign: 'center',
+    },
 })
