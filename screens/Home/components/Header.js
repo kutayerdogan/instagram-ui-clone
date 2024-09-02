@@ -24,7 +24,8 @@ function Header() {
             >
                 <Heart
                     size={24}
-                    fill={"#000"}
+                    stroke={"#000"}
+                    fill={"transparent"}
                 />
             </TouchableOpacity>
             <TouchableOpacity

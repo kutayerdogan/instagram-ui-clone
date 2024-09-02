@@ -257,12 +257,12 @@ function Plus({size, fill, ...props}) {
   );
 }
 
-function Heart({size, fill, ...props}) {
+function Heart({size, fill, stroke, ...props}) {
   return(
-    <Svg width={size} height={size} viewBox="0 0 24 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <Svg width={size} height={size} viewBox="0 0 24 20" fill={fill} xmlns="http://www.w3.org/2000/svg">
       <Path 
         d="M13.4316 18.409C13.0909 18.7501 12.6328 18.9569 12.1452 18.991H12.0018C11.4614 18.991 10.946 18.7783 10.572 18.404L10.5689 18.4008L3.32526 11.2133L3.32529 11.2133L3.31863 11.2068C0.973784 8.92297 0.885183 5.19829 3.11816 2.80451C5.32829 0.532632 8.95367 0.387785 11.3445 2.4732L12.0018 3.04656L12.6592 2.4732C15.0499 0.387876 18.6751 0.53262 20.8852 2.80421C23.1186 5.20302 23.0299 8.92296 20.68 11.2118L20.68 11.2118L20.6731 11.2186L13.4345 18.4061L13.4316 18.409Z" 
-        stroke={fill} 
+        stroke={stroke} 
         strokeWidth="2"
         />
     </Svg>
@@ -306,8 +306,8 @@ function Verify({size, fill, ...props}) {
 
 function Saved({size, fill, ...props}) {
   return(
-    <Svg width={size} height={size} viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <Path d="M9 11.5L16.94 19H17V1H1V19H1.06L9 11.5Z" stroke={fill} strokeWidth="2" strokeLinejoin="round"/>
+    <Svg width={size} height={size} viewBox="0 0 18 20" fill={fill} xmlns="http://www.w3.org/2000/svg">
+      <Path d="M9 11.5L16.94 19H17V1H1V19H1.06L9 11.5Z" stroke="black" strokeWidth="2" strokeLinejoin="round"/>
     </Svg>
 
   );

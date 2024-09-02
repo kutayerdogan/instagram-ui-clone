@@ -1,8 +1,9 @@
 import React from 'react'
 import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native'
-import posts from '../../data/posts'
 import { Dm, Heart, Messenger, Verify, Saved } from '../../Icons'
-import moment from 'moment'
+import { getTimeAgo } from '../../utils'
+import LikeButton from './LikeButton'
+import SavedButton from './SavedButton'
 
 function Post({ post }) {
   return (
@@ -28,17 +29,7 @@ function Post({ post }) {
         <View style={styles.actions}>
         <View style={styles.leftActions}>
             <View style={styles.likes}>
-                <TouchableOpacity>
-                    <Heart
-                        size={24}
-                        fill={"#000"}
-                    />                    
-                </TouchableOpacity>
-                {post.likes > 0 && (
-                    <Text
-                        style={{ fontSize: 12, fontWeight: 'bold' }}
-                    >{post.likes}</Text>
-                )}
+                <LikeButton likes={post.likes} />
             </View>
             <View style={styles.likes}>
                 <Messenger
@@ -57,11 +48,7 @@ function Post({ post }) {
             />
         </View>
         <View style={styles.rightActions}>
-            <Saved 
-                size={20}
-                fill={"#000"}
-                
-            />
+            <SavedButton />
         </View>
         </View>
         <View style={styles.footer}>
@@ -86,28 +73,6 @@ function Post({ post }) {
   )
 }
 
-const getTimeAgo = (date) => {
-    const now = moment();
-    const postDate = moment(date);
-    const differenceInMinutes = now.diff(postDate, 'minutes');
-    const differenceInHours = now.diff(postDate, 'hours');
-    const differenceInDays = now.diff(postDate, 'days');
-    const differenceInWeeks = now.diff(postDate, 'weeks');
-    const differenceInMonths = now.diff(postDate, 'months');
-    const differenceInYears = now.diff(postDate, 'years');
-  
-    if (differenceInMinutes < 60) {
-      return `${differenceInMinutes} minutes ago`;
-    } else if (differenceInHours < 24) {
-      return `${differenceInHours} hours ago`;
-    } else if (differenceInDays < 30) {
-      return `${differenceInDays} days ago`;
-    } else if (differenceInWeeks < 52) {
-      return `${differenceInWeeks} weeks ago`;
-    } else {
-      return `${differenceInYears} years ago`;
-    }
-  };
 
 export default Post
 
