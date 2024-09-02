@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyleSheet, TouchableOpacity, View } from 'react-native'
-import { Logo, Plus, Heart, Messenger } from "../../../Icons";
+import { Logo, Plus, Heart, Messenger, Dm } from "../../../Icons";
 
 function Header() {
   return (
@@ -30,7 +30,7 @@ function Header() {
             <TouchableOpacity
                 activeOpacity={0.6}
             >
-                <Messenger
+                <Dm
                     size={24}
                     fill={"#000"}
                 />

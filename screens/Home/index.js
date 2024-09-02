@@ -1,7 +1,9 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, FlatList } from "react-native";
 import React from "react";
 import Header from "./components/Header";
 import Stories from "./components/Stories";
+import Posts from "../../components/shared/Post";
+import posts from "../../data/posts";
 
 function Home() {
   return (
@@ -10,6 +12,11 @@ function Home() {
     >
       <Header />
       <Stories />
+      <FlatList
+        data={posts}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Posts post={item} />}
+      />
     </View>
   );
 }
